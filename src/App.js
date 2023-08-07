@@ -12,7 +12,8 @@ function App() {
   });
 
   const searchPokemon = () => {
-    Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response)=> {
+    let loweredName = pokemonName.toLowerCase();
+    Axios.get(`https://pokeapi.co/api/v2/pokemon/${loweredName}`).then((response)=> {
       setPokemonData({
         name: pokemonName, 
         sprite: response.data.sprites.front_default,
@@ -29,7 +30,7 @@ function App() {
       <div className="title-section">
         <h1 className="app-title">PokeAPI Practice</h1>
         <div className="search-container">
-          <input className="poke-input" type="text" onChange={(event) => {setPokemonName(event.target.value)}}/>
+          <input className="poke-input" type="text" placeholder='Type Pokemon name...' onChange={(event) => {setPokemonName(event.target.value)}}/>
           <button onClick={searchPokemon} className="poke-search">Search</button>
         </div>
       </div>
@@ -40,7 +41,7 @@ function App() {
         (
           <>
             <h1>{pokemonData.name}</h1>
-            <img src={pokemonData.sprite} />
+            <img alt='pkm-sprite' className='pkm-sprite' src={pokemonData.sprite} />
             <h3>Type: {pokemonData.type}</h3>
           </>
         )}
