@@ -1,73 +1,11 @@
 * {
-  margin: 0;
+  margin: 0%;
+  font-family: "Lucida Console"
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  /* height: 100vh; */
-  justify-content: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  width: 100% auto;
-}
-
-.title-section {
-  flex-direction: column;
-  background-color: red;
-  padding: 2%;
-  border: .2rem solid black;
-}
-
-.app-title {
-  text-align: center;
-  font-weight: 300;
-  color: yellow;
-  font-family: 'Pokemon Solid', sans-serif;
-  font-size: 38px;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: navy;
-  letter-spacing: .2rem;
-  line-height: 60px;
-  margin-bottom: 1%;
-}
-
-.search-container {
-  display: flex;
-  margin: 0 auto;
-  width: 100%;
-  padding: 1%;
-}
-
-.poke-input {
-  display: block;
-  width: 80%;
-  padding: 2%;
-}
-
-.poke-search {
-  display: block;
-  width: auto;
-  padding: 2%;
-}
-
-.poke-search:hover {
- cursor: pointer;
-}
-
-.pokemon-section {
-  background-color: lightgrey;
-  padding: 2%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: .2rem solid black;
-}
-
-.pokemon-section h3 {
+  position: relative;
   margin: 0;
-}
-
-.pkm-sprite {
-  width: 12%;
-  height: auto;
+  justify-content: center;
+  margin: 2%;
 }

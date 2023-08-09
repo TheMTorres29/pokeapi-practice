@@ -1,0 +1,23 @@
+.homepage-container {
+    display: flex;
+    background-color: #c9c8c7;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+    justify-content: space-between;
+
+}
+
+.col {
+    width: auto;
+    border: black outset 2px;
+    margin: .5%;
+    padding: .2%;
+    white-space: nowrap;
+    border-radius: 5px;
+    background-color: #a6a3a2;
+}
