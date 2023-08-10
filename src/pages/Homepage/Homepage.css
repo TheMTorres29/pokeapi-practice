@@ -5,14 +5,29 @@
 }
 
 .row {
+    width: 100%;
+    padding: .5%;
     display: flex;
     flex-wrap: wrap;
     border: solid 1px black;
-    justify-content: space-between;
-
+    justify-content: space-around;
 }
 
 .col {
+    width: auto;
+    padding: .5%;
+    display: flex;
+}
+
+.pkm-no {
+    position: relative;
+    color: black;
+    writing-mode:vertical-lr;
+    transform: rotate(180deg);
+    padding-top: 6%;
+}
+
+.poke-container {
     width: auto;
     border: black outset 2px;
     margin: .5%;
@@ -20,4 +35,5 @@
     white-space: nowrap;
     border-radius: 5px;
     background-color: #a6a3a2;
+    box-shadow: 5px 5px black;
 }

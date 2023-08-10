@@ -4,14 +4,14 @@ import './Pokemon.css';
 
 const Pokemon = ({ pokemon }) => {
   return (
-    <div className='pokemon-container'>
+    <Link className='pokemon-container' to={`/pokemon/${pokemon.id}`}>
         <div className="pkm-name-container">
             <h2 className='pkm-name'>{pokemon.name}</h2>
         </div>
         <div className="pkm-sprite-container">
             <img className='pkm-sprite' alt='No sprite atm :(' src={pokemon.sprites.other.home.front_default}/>
         </div>
-    </div>
+    </Link>
   )
 }
 

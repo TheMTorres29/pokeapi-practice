@@ -14,7 +14,8 @@ const Homepage = () => {
   
     const getPokemonList = async () => {
         let pokemonArray = [];
-        for(let i = 1; i <= 1010; i++){
+        // 1010 for SV
+        for(let i = 1; i <= 905; i++){
             pokemonArray.push(await getPokemonData(i));
         }
         console.log(pokemonArray);
@@ -40,7 +41,10 @@ const Homepage = () => {
                     <div className='row'>
                         {pokemon.map(p => (
                             <div className='col' key={p.data.name}>
-                                <Pokemon pokemon={p.data}/>
+                                <h3 className="pkm-no">{p.data.id}</h3>
+                                <div className="poke-container">
+                                    <Pokemon pokemon={p.data}/>
+                                </div>
                             </div>
                         ))}     
                     </div>

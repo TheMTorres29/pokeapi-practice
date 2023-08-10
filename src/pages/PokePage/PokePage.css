@@ -1,0 +1,55 @@
+.pokepage-container {
+    width: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #c9c8c7;
+    align-content: center;
+    padding: 1%;
+}
+
+.pokedata.name-container {
+    width: auto;
+}
+
+.pokedata.name {
+    text-align: center;
+}
+
+.pokedata-img-container {
+    position: relative;
+    max-width: 400px;
+    max-height: 400px;
+    /* height: fit-content; */
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.pokedata-img   {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.shiny-star-container {
+    position: absolute;
+    z-index: 2;
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.shinystar-on {
+    position: relative;
+    filter: invert(100%) sepia(100%) saturate(502%) hue-rotate(2deg) brightness(120%) contrast(80%);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.shinystar-off {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
