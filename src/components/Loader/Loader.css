@@ -49,10 +49,10 @@
 }
 
 .pokeball-icon {
-    position: absolute;
-    width: 150%;
+    position: fixed;
+    width: 100%;
     height: auto;
-    left: -75%;
+    left: -50%;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;

@@ -11,11 +11,12 @@ const Homepage = () => {
 
     const [pokemon, setPokemon] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [loadedPokemon, setLoadedPokemon] = useState(25);
   
-    const getPokemonList = async () => {
+    let getPokemonList = async () => {
         let pokemonArray = [];
         // 1010 for SV
-        for(let i = 1; i <= 905; i++){
+        for(let i = 1; i <= loadedPokemon; i++){
             pokemonArray.push(await getPokemonData(i));
         }
         console.log(pokemonArray);
@@ -23,9 +24,16 @@ const Homepage = () => {
         setLoading(false);
     }
 
-    const getPokemonData = async(id) => {
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    let getPokemonData = async(id) => {
+        let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         return res;
+    }
+
+    let queueMorePokemon = () => {
+        console.log(loadedPokemon);
+        setLoading(true);
+        setLoadedPokemon(loadedPokemon+25);
+        getPokemonList();
     }
 
     useEffect(() => {
@@ -47,6 +55,9 @@ const Homepage = () => {
                                 </div>
                             </div>
                         ))}     
+                    </div>
+                    <div className="load-more-container">
+                        <button className='load-more' onClick={queueMorePokemon}>Load more Pokemon</button>
                     </div>
                 </div>
             )}
