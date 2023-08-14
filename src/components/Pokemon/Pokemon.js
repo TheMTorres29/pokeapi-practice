@@ -9,7 +9,7 @@ const Pokemon = ({ pokemon }) => {
             <h2 className='pkm-name'>{pokemon.name}</h2>
         </div>
         <div className="pkm-sprite-container">
-            <img className='pkm-sprite' alt='No sprite atm :(' src={pokemon.sprites.other.home.front_default}/>
+            <img className={`pkm-sprite ${pokemon.types[0].type.name}`} alt='No sprite atm :(' src={pokemon.sprites.other.home.front_default}/>
         </div>
     </Link>
   )

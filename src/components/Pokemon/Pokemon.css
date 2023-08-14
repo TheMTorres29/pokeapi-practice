@@ -28,9 +28,65 @@
 .pkm-sprite {
     max-width: 90%;
     height: auto;
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     border-width: 1px;
     border-style: ridge;
     border-radius: 5px;
     margin:5px auto;
+}
+
+/* Pokemon Types */
+.grass {
+    background-color: #5cb564;
+}
+.water {
+    background-color: #4a5db0;
+}
+.fire {
+    background-color: #b32e33;
+}
+.normal {
+    background-color: #dbd6d0;
+}
+.rock {
+    background-color: #997439;
+}
+.steel {
+    background-color: #919190;
+}
+.psychic {
+    background-color: #9972a8;
+}
+.poison {
+    background-color: #7c529e;
+}
+.ice {
+    background-color: #84d5db;
+}
+.ground {
+    background-color: #9c8e64;
+}
+.ghost {
+    background-color: #564d63;
+}
+.flying {
+    background-color: #a7bee8;
+}
+.fighting {
+    background-color: #c7923e;
+}
+.electric {
+    background-color: #e6d14e;
+}
+.dark {
+    background-color: #434347;
+}
+.bug {
+    background-color: #90b584;
+}
+.dragon {
+    background-color: #50507a;
+}
+.fairy {
+    background-color: #c294d1;
 }

@@ -43,7 +43,7 @@ const PokePage = ({ match }) => {
                 ) : (
                     <div className='pokepage-container'>
                         <div className="pokedata-name-container">
-                            <h2 className="pokedataname">{pokemonDetails.name}</h2>
+                            <h2 className="pokedata-name">{pokemonDetails.name}</h2>
                         </div>
                         <div className="pokedata-img-container">
                             { shiny ? (
@@ -59,7 +59,13 @@ const PokePage = ({ match }) => {
                                 </>
                             )}
                         </div>
-
+                        <div className="pokedata-types-container">
+                                {pokemonDetails.types.map(t => (
+                                    <div className={`pokedata-types ${t.type.name}`}>
+                                        <h2 className='pokedata-types-name'>{t.type.name}</h2>
+                                    </div>
+                                ))}
+                        </div>
                     </div>
             )}
         </>

@@ -12,8 +12,9 @@
     width: auto;
 }
 
-.pokedata.name {
-    text-align: center;
+.pokedata-name {
+    text-align: left;
+    font-size: 4.2vmin;
 }
 
 .pokedata-img-container {
@@ -22,6 +23,7 @@
     max-height: 400px;
     /* height: fit-content; */
     border: 5px solid black;
+    box-shadow: 5px 5px black;
     border-radius: 5px;
 }
 
@@ -36,8 +38,8 @@
 .shiny-star-container {
     position: absolute;
     z-index: 2;
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 21%;
+    max-height: 21;
 }
 
 .shinystar-on {
@@ -52,4 +54,28 @@
     position: relative;
     width: 100%;
     cursor: pointer;
+}
+
+.pokedata-types-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    max-width: 400px;
+    /* border: 1px solid green; */
+    justify-content: space-around;
+}
+
+.pokedata-types {
+    max-width: 200px;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 2.5%;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+}
+
+.pokedata-types-name {
+    width: 100% auto;
+    padding: 1%;
+    /* font-size: 3.2vmin; */
 }
