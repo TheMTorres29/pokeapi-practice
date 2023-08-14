@@ -1,11 +1,25 @@
 .pokepage-container {
     width: auto;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #c9c8c7;
     align-content: center;
     padding: 1%;
+}
+
+.go-back-container {
+    position: relative;
+}
+
+.back-btn {
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: darkgrey;
 }
 
 .pokedata.name-container {
@@ -78,4 +92,56 @@
     width: 100% auto;
     padding: 1%;
     /* font-size: 3.2vmin; */
+}
+
+.pokedata-abilities-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    /* border: 1px solid green; */
+    justify-content: space-around;
+    padding: .5%;
+}
+
+.pokedata-abilities-title {
+    width: 100% 100%;
+}
+
+.pokedata-abilities {
+    max-width: 300px;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 2.5%;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+}
+
+.pokedata-abilities-name {
+    white-space: nowrap;
+    font-size: 2.2vmin;
+
+}
+
+.pokedata-details-container {
+    padding: .5%;
+
+}
+
+.pokedata-stats-container {
+    padding: .5%;
+
+}
+
+.pokedata-stats {
+    border-radius: 5px;
+    padding: 1%;
+    margin: 2.5%;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+}
+
+.pokedata-stats-name {
+    white-space: nowrap;
+
 }

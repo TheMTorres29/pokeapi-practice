@@ -42,9 +42,13 @@ const PokePage = ({ match }) => {
                     <Loader/>
                 ) : (
                     <div className='pokepage-container'>
+                        <Link to={'/'} className="go-back-container">
+                            <button className='back-btn'>Go back</button>
+                        </Link>
                         <div className="pokedata-name-container">
                             <h2 className="pokedata-name">{pokemonDetails.name}</h2>
                         </div>
+
                         <div className="pokedata-img-container">
                             { shiny ? (
                                 <>
@@ -59,12 +63,37 @@ const PokePage = ({ match }) => {
                                 </>
                             )}
                         </div>
+
                         <div className="pokedata-types-container">
-                                {pokemonDetails.types.map(t => (
-                                    <div className={`pokedata-types ${t.type.name}`}>
-                                        <h2 className='pokedata-types-name'>{t.type.name}</h2>
-                                    </div>
-                                ))}
+                            {pokemonDetails.types.map(t => (
+                                <div className={`pokedata-types ${t.type.name}`}>
+                                    <h2 className='pokedata-types-name'>{t.type.name}</h2>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="pokedata-details-container">
+                            <h2 className="pokedata-title">Pokemon Details</h2>
+                            <h3 className="pokedata-weight">Weight: {pokemonDetails.weight}</h3>
+                            <h3 className="pokedata-height">Height: {pokemonDetails.height}</h3>
+                        </div>
+
+                        <div className="pokedata-stats-container">
+                            <h2 className="pokedata-title">Stats</h2>
+                            {pokemonDetails.stats.map(s => (
+                                <div className={`pokedata-stats`}>
+                                    <h3 className='pokedata-stats-name'>{s.stat.name}: {s.base_stat}</h3>
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <div className="pokedata-abilities-container">
+                            <h2 className="pokedata-title">Abilities</h2>
+                            {pokemonDetails.abilities.map(a => (
+                                <div className={`pokedata-abilities`}>
+                                    <h3 className='pokedata-abilities-name'>{a.ability.name}</h3>
+                                </div>
+                            ))}
                         </div>
                     </div>
             )}
