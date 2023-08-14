@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Homepage.css'
 
@@ -16,6 +17,7 @@ const Homepage = () => {
     let getPokemonList = async () => {
         let pokemonArray = [];
         // 1010 for SV
+        // 905 Arceus
         for(let i = 1; i <= loadedPokemon; i++){
             pokemonArray.push(await getPokemonData(i));
         }
@@ -46,6 +48,10 @@ const Homepage = () => {
                 <Loader />
             ) : (
                 <div className='homepage-container'>
+                    {/* <input id='selectedNum' type="number" min="1" max="905" placeholder='0' required/>
+                    <Link className="pokeSearch" to={`./pokemon/${document.getElementById('selectedNum')}`}>
+                         Search
+                    </Link> */}
                     <div className='row'>
                         {pokemon.map(p => (
                             <div className='col' key={p.data.name}>

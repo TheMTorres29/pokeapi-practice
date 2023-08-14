@@ -95,6 +95,16 @@ const PokePage = ({ match }) => {
                                 </div>
                             ))}
                         </div>
+
+                        <div className="pokedata-moves-container">
+                            <h2 className="pokedata-title">Moves</h2>
+                            {pokemonDetails.moves.map(m => (
+                                <div className='pokedata-moves'>
+                                    <h3 className='pokedata-moves-name'>{m.move.name}</h3>
+
+                                </div>
+                            ))}
+                        </div>
                     </div>
             )}
         </>
