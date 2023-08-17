@@ -9,19 +9,17 @@ import Loader from '../../components/Loader/Loader';
 
 
 const Homepage = () => {
-
     const [pokemon, setPokemon] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [loadedPokemon, setLoadedPokemon] = useState([1,25]);
-  
+    const [loadedPokemon, setLoadedPokemon] = useState([1,24]);
+    const pageIncrement = 24;
+
     let getPokemonList = async () => {
         let pokemonArray = [];
-        // 1010 for SV, 905 Arceus
         for(let i = loadedPokemon[0]; i <= loadedPokemon[1]; i++){
             pokemonArray.push(await getPokemonData(i));
         }
         setPokemon(pokemonArray);
-        setLoading(false);
     }
 
     let getPokemonData = async(id) => {
@@ -31,17 +29,17 @@ const Homepage = () => {
 
     let queuePrevPokemon = () => {
         setLoading(true);
-        // let paginationArray = [loadedPokemon[0]-25, loadedPokemon[1]-25];
-
-        setLoadedPokemon([loadedPokemon[0]-25, loadedPokemon[1]-25]);
+        setLoadedPokemon([loadedPokemon[0]-pageIncrement, loadedPokemon[1]-pageIncrement]);
         getPokemonList();
     }
 
     let queueNextPokemon = () => {
         setLoading(true);
-        // let paginationArray = [loadedPokemon[0]+25, loadedPokemon[1]+25];
+        let pokeIndex = loadedPokemon[1]+pageIncrement;
+        // 1010 for SV, 905 Arceus
+        if(pokeIndex > 905) pokeIndex = 905;
 
-        setLoadedPokemon([loadedPokemon[0]+25, loadedPokemon[1]+25]);
+        setLoadedPokemon([loadedPokemon[0]+pageIncrement, pokeIndex]);
         getPokemonList();
     }
 
@@ -57,7 +55,7 @@ const Homepage = () => {
     const NextArrow = () => {
         return (
             <>
-                {loadedPokemon[1] <= 905 && (
+                {loadedPokemon[1] < 905 && (
                     <button className='load-next' onClick={queueNextPokemon}>&#187;</button>
                 )}
             </>
@@ -67,6 +65,7 @@ const Homepage = () => {
     useEffect(() => {
         getPokemonList()
         console.log(loadedPokemon);
+        setLoading(false);
     }, [loadedPokemon])
     
     return (
@@ -75,6 +74,10 @@ const Homepage = () => {
                 <Loader />
             ) : (
                 <div className='homepage-container'>
+                    <div className="load-more-container">
+                        <PrevArrow />
+                        <NextArrow />
+                    </div>
                     <div className='row'>
                         {pokemon.map(p => (
                             <div className='col' key={p.data.name}>

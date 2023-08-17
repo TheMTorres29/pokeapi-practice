@@ -6,7 +6,7 @@
 
 .App {
   position: relative;
-  margin: 0;
   justify-content: center;
   margin: 2%;
+  height: 100%;
 }

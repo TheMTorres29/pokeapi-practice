@@ -42,50 +42,62 @@ const PokePage = ({ match }) => {
                     <Loader/>
                 ) : (
                     <div className='pokepage-container'>
-                        <Link to={'/'} className="go-back-container">
-                            <button className='back-btn'>Go back</button>
-                        </Link>
+                        <div className="go-back-container">
+                            <Link className='back-btn' to={'/'}>
+                                Go back
+                            </Link>
+                        </div>
+                        
                         <div className="pokedata-name-container">
-                            <h2 className="pokedata-name">{pokemonDetails.name}</h2>
+                            <h2 className="pokedata-name">{id + '. ' + pokemonDetails.species.name}</h2>
                         </div>
+                        <div className="pokedata-top-container">
+                            {/* Left Side of PokePage */}
+                            <div className="pokedata-left-container">
+                                <div className={`pokedata-img-container ${pokemonDetails.types[0].type.name}`}>
+                                    { shiny ? (
+                                        <>
+                                            <div className="shiny-star-container"><img onClick={() => setShinySprite(shiny)} src={shinyStar} alt="shiny-star" className="shinystar-on" /></div>
+                                            <img className='pokedata-img' src={pokemonDetails.sprites.other.home.front_shiny} alt="pkm-img" />
+                                        </>
 
-                        <div className="pokedata-img-container">
-                            { shiny ? (
-                                <>
-                                    <div className="shiny-star-container"><img onClick={() => setShinySprite(shiny)} src={shinyStar} alt="shiny-star" className="shinystar-on" /></div>
-                                    <img className='pokedata-img' src={pokemonDetails.sprites.other.home.front_shiny} alt="pkm-img" />
-                                </>
-
-                            ) : (
-                                <>
-                                    <div className="shiny-star-container"><img onClick={() => setShinySprite(shiny)} src={shinyStar} alt="shiny-star" className="shinystar-off" /></div>
-                                    <img className='pokedata-img' src={pokemonDetails.sprites.other.home.front_default} alt="pkm-img" />
-                                </>
-                            )}
-                        </div>
-
-                        <div className="pokedata-types-container">
-                            {pokemonDetails.types.map(t => (
-                                <div className={`pokedata-types ${t.type.name}`}>
-                                    <h2 className='pokedata-types-name'>{t.type.name}</h2>
+                                    ) : (
+                                        <>
+                                            <div className="shiny-star-container"><img onClick={() => setShinySprite(shiny)} src={shinyStar} alt="shiny-star" className="shinystar-off" /></div>
+                                            <img className='pokedata-img' src={pokemonDetails.sprites.other.home.front_default} alt="pkm-img" />
+                                        </>
+                                    )}
                                 </div>
-                            ))}
-                        </div>
 
-                        <div className="pokedata-details-container">
-                            <h2 className="pokedata-title">Pokemon Details</h2>
-                            <h3 className="pokedata-weight">Weight: {pokemonDetails.weight}</h3>
-                            <h3 className="pokedata-height">Height: {pokemonDetails.height}</h3>
-                        </div>
-
-                        <div className="pokedata-stats-container">
-                            <h2 className="pokedata-title">Stats</h2>
-                            {pokemonDetails.stats.map(s => (
-                                <div className={`pokedata-stats`}>
-                                    <h3 className='pokedata-stats-name'>{s.stat.name}: {s.base_stat}</h3>
+                                <div className="pokedata-types-container">
+                                    {pokemonDetails.types.map(t => (
+                                        <div className={`pokedata-types ${t.type.name}`}>
+                                            <h2 className='pokedata-types-name'>{t.type.name}</h2>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
+
+                            {/* Right Side of PokePage */}
+                            <div className="pokedata-right-container">
+                                <div className="pokedata-details-container">
+                                    <h2 className="pokedata-title">Pokemon Details</h2>
+                                    <h3 className="pokedata-weight">Weight: {pokemonDetails.weight}</h3>
+                                    <h3 className="pokedata-height">Height: {pokemonDetails.height}</h3>
+                                </div>
+
+                                <div className="pokedata-stats-container">
+                                    <h2 className="pokedata-title">Stats</h2>
+                                    {pokemonDetails.stats.map(s => (
+                                        <div className={`pokedata-stats`}>
+                                            <h3 className='pokedata-stats-name'>{s.stat.name}: {s.base_stat}</h3>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
+                        
+                        
                         
                         <div className="pokedata-abilities-container">
                             <h2 className="pokedata-title">Abilities</h2>
