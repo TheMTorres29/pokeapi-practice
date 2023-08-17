@@ -57,7 +57,7 @@ const Homepage = () => {
     const NextArrow = () => {
         return (
             <>
-                {loadedPokemon[1] !== 905 && (
+                {loadedPokemon[1] <= 905 && (
                     <button className='load-next' onClick={queueNextPokemon}>&#187;</button>
                 )}
             </>
