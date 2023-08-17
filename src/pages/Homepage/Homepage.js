@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Homepage.css'
 
@@ -12,16 +12,14 @@ const Homepage = () => {
 
     const [pokemon, setPokemon] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [loadedPokemon, setLoadedPokemon] = useState(25);
+    const [loadedPokemon, setLoadedPokemon] = useState([1,25]);
   
     let getPokemonList = async () => {
         let pokemonArray = [];
-        // 1010 for SV
-        // 905 Arceus
-        for(let i = 1; i <= loadedPokemon; i++){
+        // 1010 for SV, 905 Arceus
+        for(let i = loadedPokemon[0]; i <= loadedPokemon[1]; i++){
             pokemonArray.push(await getPokemonData(i));
         }
-        console.log(pokemonArray);
         setPokemon(pokemonArray);
         setLoading(false);
     }
@@ -31,16 +29,45 @@ const Homepage = () => {
         return res;
     }
 
-    let queueMorePokemon = () => {
-        console.log(loadedPokemon);
+    let queuePrevPokemon = () => {
         setLoading(true);
-        setLoadedPokemon(loadedPokemon+25);
+        // let paginationArray = [loadedPokemon[0]-25, loadedPokemon[1]-25];
+
+        setLoadedPokemon([loadedPokemon[0]-25, loadedPokemon[1]-25]);
         getPokemonList();
     }
 
-    useEffect(() => {
+    let queueNextPokemon = () => {
+        setLoading(true);
+        // let paginationArray = [loadedPokemon[0]+25, loadedPokemon[1]+25];
+
+        setLoadedPokemon([loadedPokemon[0]+25, loadedPokemon[1]+25]);
         getPokemonList();
-    }, [])
+    }
+
+    const PrevArrow = () => {
+        return (
+            <>
+                {loadedPokemon[0] !== 1 && (
+                    <button className='load-prev' onClick={queuePrevPokemon}>&#171;</button>
+                )}
+            </>
+        );
+    }
+    const NextArrow = () => {
+        return (
+            <>
+                {loadedPokemon[1] !== 905 && (
+                    <button className='load-next' onClick={queueNextPokemon}>&#187;</button>
+                )}
+            </>
+        );
+    }
+
+    useEffect(() => {
+        getPokemonList()
+        console.log(loadedPokemon);
+    }, [loadedPokemon])
     
     return (
         <>
@@ -48,10 +75,6 @@ const Homepage = () => {
                 <Loader />
             ) : (
                 <div className='homepage-container'>
-                    {/* <input id='selectedNum' type="number" min="1" max="905" placeholder='0' required/>
-                    <Link className="pokeSearch" to={`./pokemon/${document.getElementById('selectedNum')}`}>
-                         Search
-                    </Link> */}
                     <div className='row'>
                         {pokemon.map(p => (
                             <div className='col' key={p.data.name}>
@@ -63,7 +86,8 @@ const Homepage = () => {
                         ))}     
                     </div>
                     <div className="load-more-container">
-                        <button className='load-more' onClick={queueMorePokemon}>Load more Pokemon</button>
+                        <PrevArrow />
+                        <NextArrow />
                     </div>
                 </div>
             )}

@@ -16,6 +16,7 @@
     background: none;
     border-radius: 5px;
     cursor: pointer;
+    padding: .2%;
 }
 
 .back-btn:hover {
